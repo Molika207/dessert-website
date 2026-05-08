@@ -126,7 +126,12 @@ nav a {
 /* ===== Hero Section ===== */
 .container {
   height: 100vh;
-  background: seashell;
+  background:
+    linear-gradient(90deg, rgba(3, 22, 38, 0.74) 0%, rgba(3, 22, 38, 0.48) 45%, rgba(240, 248, 255, 0.1) 100%),
+    url("/image/image.png") no-repeat center center/cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -136,6 +141,12 @@ nav a {
 .hero-image img {
   width: 500px;
   animation: float 3s ease-in-out infinite;
+  filter: hue-rotate(170deg) saturate(1.25) contrast(1.08) drop-shadow(0 18px 28px rgba(0, 48, 84, 0.28));
+}
+
+.text {
+  width: 58%;
+  max-width: 900px;
 }
 
 @keyframes float {
@@ -148,22 +159,87 @@ nav a {
 }
 
 .text h2 {
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 4.4vw, 4.8rem);
+  line-height: 1.15;
   margin-bottom: 1rem;
-  color: black;
-  font-family: 'Poppins';
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.75),
+    0 0 20px rgba(31, 139, 214, 0.45),
+    0 4px 14px rgba(0, 0, 0, 0.7);
+}
+
+.title-line {
+  display: block;
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid transparent;
+}
+
+.title-line-one {
+  animation: typingLineOne 4s steps(18, end) infinite;
+}
+
+.title-line-two {
+  animation: typingLineTwo 4s steps(17, end) infinite;
+}
+
+@keyframes typingLineOne {
+  0% {
+    width: 0;
+    border-color: white;
+  }
+  35% {
+    width: 18ch;
+    border-color: white;
+  }
+  36%,
+  88% {
+    width: 18ch;
+    border-color: transparent;
+  }
+  100% {
+    width: 0;
+    border-color: transparent;
+  }
+}
+
+@keyframes typingLineTwo {
+  0%,
+  38% {
+    width: 0;
+    border-color: transparent;
+  }
+  39% {
+    width: 0;
+    border-color: white;
+  }
+  75%,
+  88% {
+    width: 17ch;
+    border-color: white;
+  }
+  100% {
+    width: 0;
+    border-color: transparent;
+  }
 }
 
 .text p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  color: blue;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.55);
 }
 
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: #3399ff;
+  background: #063b66;
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -172,7 +248,7 @@ nav a {
 }
 
 .btn:hover {
-  background: #0073e6;
+  background: #0b5c99;
 }
 
 /* ===== Footer ===== */
@@ -232,44 +308,54 @@ nav a {
 
 /* ===== About Page ===== */
 #about {
-  padding: 3rem 2rem;
-  background: #e6f3ff;
+  padding: 4.5rem 2rem;
+  background:
+    linear-gradient(rgba(246, 251, 255, 0.88), rgba(246, 251, 255, 0.94)),
+    url("/image/image.png");
+  background-size: cover;
+  background-position: center;
   text-align: center;
 }
 
 #about h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #0056b3;
+  display: inline-block;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  color: #032b4a;
+  border-bottom: 4px solid #1f8bd6;
+  padding-bottom: 0.35rem;
 }
 
 #about p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
-  max-width: 800px;
-  margin: 0 auto 2rem;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: #22313f;
+  max-width: 760px;
+  margin: 0 auto 2.4rem;
 }
 
 #about blockquote {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-style: italic;
-  color: #0073e6;
-  background: #cce6ff;
-  padding: 1rem 1.5rem;
-  border-left: 5px solid #3399ff;
-  border-radius: 10px;
-  max-width: 700px;
-  margin: 2rem auto;
+  color: #063b66;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 1.4rem 2rem;
+  border-left: 6px solid #1f8bd6;
+  border-radius: 8px;
+  max-width: 780px;
+  margin: 2.2rem auto 2.6rem;
+  box-shadow: 0 12px 28px rgba(3, 43, 74, 0.12);
 }
 
 .about-img {
-  max-width: 350px;
+  max-width: 760px;
   width: 100%;
-  border-radius: 15px;
-  margin: 2rem auto;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 2.2rem auto;
   display: block;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 18px 36px rgba(3, 43, 74, 0.18);
   transition: transform 0.3s;
 }
 
@@ -278,18 +364,19 @@ nav a {
 }
 
 .team {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   padding: 2rem;
-  border-radius: 15px;
-  max-width: 800px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  max-width: 760px;
+  margin: 2.5rem auto 0;
+  border-top: 4px solid #1f8bd6;
+  box-shadow: 0 14px 32px rgba(3, 43, 74, 0.12);
 }
 
 .team h3 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
-  color: #0056b3;
+  color: #032b4a;
 }
 
 .team p {
@@ -304,13 +391,19 @@ nav a {
 #menu {
   padding: 3rem 2rem;
   text-align: center;
-  background: #e6f3ff;
+  background: #f6fbff;
 }
 
 #menu h2 {
-  font-size: 2rem;
+  display: inline-block;
+  font-size: 2.4rem;
   margin-bottom: 2rem;
-  color: #0056b3;
+  color: #032b4a;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.35rem 1.2rem;
+  border-bottom: 4px solid #1f8bd6;
+  border-radius: 8px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .products {
@@ -381,32 +474,42 @@ nav a {
 
 /* ===== Contact Page ===== */
 #contact {
-  padding: 3rem 2rem;
-  background: #f0f8ff;
+  padding: 4.5rem 2rem;
+  background:
+    linear-gradient(rgba(246, 251, 255, 0.9), rgba(246, 251, 255, 0.96)),
+    url("/image/image.png");
+  background-size: cover;
+  background-position: center;
   text-align: center;
 }
 
 #contact h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #0056b3;
+  display: inline-block;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  color: #032b4a;
+  border-bottom: 4px solid #1f8bd6;
+  padding-bottom: 0.35rem;
 }
 
 #contact p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #555;
+  font-size: 1.12rem;
+  margin: 0 auto 2.6rem;
+  color: #22313f;
+  max-width: 760px;
+  line-height: 1.8;
 }
 
 
 
 .contact-form {
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto 3rem;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2.4rem;
+  border-radius: 10px;
+  border-top: 4px solid #1f8bd6;
+  box-shadow: 0 16px 36px rgba(3, 43, 74, 0.14);
   text-align: left;
 }
 
@@ -424,24 +527,26 @@ nav a {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #ddd;
+  padding: 0.9rem 1rem;
+  border: 1px solid #c9dbe8;
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
+  color: #102331;
+  background: #fbfdff;
   transition: border 0.3s, box-shadow 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border: 1px solid #3399ff;
-  box-shadow: 0 0 5px rgba(51, 153, 255, 0.4);
+  border: 1px solid #1f8bd6;
+  box-shadow: 0 0 0 4px rgba(31, 139, 214, 0.16);
 }
 
 .contact-form button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #3399ff;
+  padding: 0.9rem 1.8rem;
+  background: #063b66;
   color: #fff;
   font-weight: bold;
   border: none;
@@ -451,7 +556,7 @@ nav a {
 }
 
 .contact-form button:hover {
-  background: #0073e6;
+  background: #0b5c99;
 }
 /* ===== Responsive Breakpoints ===== */
 
@@ -472,15 +577,21 @@ nav a {
     text-align: center;
     padding: 1rem;
   }
+  .text {
+    width: 100%;
+  }
   .hero-image img {
     width: 90%;
     max-width: 300px;
   }
   .text h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
   .text p {
     font-size: 1rem;
+  }
+  .about-img {
+    height: 260px;
   }
   .products {
     grid-template-columns: 1fr 1fr;
@@ -499,12 +610,15 @@ nav a {
     gap: 1.5rem;
     padding: 2rem 1rem;
   }
+  .text {
+    width: 100%;
+  }
   .hero-image img {
     max-width: 400px;
     width: 80%;
   }
   .text h2 {
-    font-size: 2.2rem;
+    font-size: 3.2rem;
   }
   .products {
     grid-template-columns: repeat(2, 1fr);
@@ -519,7 +633,7 @@ nav a {
     max-width: 450px;
   }
   .text h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
   }
   .products {
     grid-template-columns: repeat(3, 1fr);
@@ -535,14 +649,16 @@ nav a {
     max-width: 550px;
   }
   .text h2 {
-    font-size: 3.5rem;
+    font-size: 5rem;
   }
   .products {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 .contact-map {
-    margin-top: 40px;
-    border-radius: 10px;
-    overflow: hidden;
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(3, 43, 74, 0.14);
 } 
